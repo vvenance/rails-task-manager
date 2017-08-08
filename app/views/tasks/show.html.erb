@@ -1,0 +1,20 @@
+<h1>Une tâche</h1>
+
+<h2>
+  <%= @task.name %>
+</h2>
+<p><%= @task.details %></p>
+<p><%= "Created at: #{@task.created_at}" %></p>
+<% if @task.created_at && @task.updated_at %>
+  <% @task.created_at == @task.updated_at %>
+    <p><%= "Never updated" %></p>
+  <% else %>
+    <p><%= "Updated at: #{@task.updated_at}" %></p>
+  <% end %>
+
+<%= link_to "Delete", task_path(@task), method: :delete%>
+<%= link_to 'edit', edit_task_path(@task) %>
+
+
+<%= link_to 'all tasks', tasks_path %>
+
